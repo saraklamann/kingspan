@@ -24,35 +24,40 @@ function SystemTable() {
     if (error) return <p>Error: {error.message}</p>;
 
     return (
-        <div className="systems-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th> ID </th>
-                        <th> Descrição </th>
-                        <th> Sigla </th>
-                        <th> E-mail de atendimento </th>
-                        <th> URL </th>
-                        <th> Status </th>
-                        <th> Ações </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {systems.map(system => (
-                        <tr key={system.systemId}>
-                            <td>{system.systemId}</td>
-                            <td>{system.systemDescription}</td>
-                            <td>{system.systemAcronym}</td>
-                            <td>{system.systemServiceEmail}</td>
-                            <td>{system.systemUrl}</td>
-                            <td>{system.systemStatus}</td>
-                            <td>
-                                <Link to={`/edit-system/${system.systemId}`} className="edit-button"> Editar </Link>
-                            </td>
+        <div className="main-element">
+            <div className="justify-center">
+                <table className="system-table">
+                    <thead>
+                        <tr>
+                            <th> Descrição </th>
+                            <th> Sigla </th>
+                            <th> E-mail de atendimento </th>
+                            <th> URL </th>
+                            <th> Status </th>
+                            <th> Ações </th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {systems.map(system => (
+                            <tr key={system.systemId}>
+                                <td>{system.systemDescription}</td>
+                                <td>{system.systemAcronym}</td>
+                                <td>{system.systemServiceEmail}</td>
+                                <td>{system.systemUrl}</td>
+                                <td>{system.systemStatus}</td>
+                                <td>
+                                    <Link to={`/edit-system/${system.systemId}`} className="edit-button"> Editar </Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+
+            <div className="space-between buttons">   
+                <button className="all-button pages-button"> Página anterior </button>
+                <button className="all-button pages-button"> Próxima página </button>
+            </div>
         </div>
     );
 }

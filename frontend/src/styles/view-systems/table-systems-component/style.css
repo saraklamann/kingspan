@@ -1,0 +1,63 @@
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-element{
+    width: 100%;
+}
+
+.system-table {
+    width: 90%;
+    font-size: 16px;
+    text-align: center;
+}
+  
+.system-table thead {
+    background-color: var(--primary-color);
+}
+  
+.system-table th,
+.system-table td {
+    padding: 5px;
+    padding-right: 0;
+}
+
+.system-table td {
+    border-bottom: solid 1px;
+}
+  
+.system-table th {
+    padding: 15px;
+    color: #333;
+}
+  
+.system-table tr:hover {
+    background-color: #f1f1f1;
+}
+  
+.edit-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 15px;
+    color: black;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align: center;
+}
+  
+.edit-button:hover {
+    background-color: var(--secondary-color);
+}
+
+.pages-button{
+    padding: 10px 15px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.buttons{
+    margin: 20px 0px 10px 0px;
+}
