@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 
@@ -42,6 +43,10 @@ public class SystemModel implements Serializable {
     @Size(max = 500, message = "A justificativa de alteração não deve conter mais que 500 caracteres")
     private String systemUpdateJustification;
 
+    @PreUpdate
+    public void preUpdate() {
+        this.systemLastUpdate= LocalDateTime.now(); 
+    }
     // Getters and Setters
     public void setSystemId(UUID systemId) {
         this.systemId = systemId;

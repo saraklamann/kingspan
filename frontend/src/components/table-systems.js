@@ -47,7 +47,7 @@ function SystemTable() {
                             <td>{system.systemUrl}</td>
                             <td>{system.systemStatus}</td>
                             <td>
-                                <Link to={`/edit/${system.systemId}`} className="edit-button"> Editar </Link>
+                                <Link to={`/edit-system/${system.systemId}`} className="edit-button"> Editar </Link>
                             </td>
                         </tr>
                     ))}
