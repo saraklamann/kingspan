@@ -8,12 +8,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
-
 
 @Entity
 @Table(name = "TABLE_SYSTEMS")
-public class SystemModels implements Serializable {
+public class SystemModel implements Serializable {
     private static final long serialVersionUID = 1L; // Identificador de versão
 
     @Id
@@ -26,6 +26,7 @@ public class SystemModels implements Serializable {
     @Size(max = 10, message = "A sigla do sistema não deve conter mais que 10 caracteres")
     private String systemAcronym;
 
+    @Email
     @Size(max = 100, message = "O e-mail de atendimento não deve conter mais que 100 caracteres")
     private String systemServiceEmail = "-";
 
