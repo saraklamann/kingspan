@@ -14,7 +14,6 @@ public record SystemRecordDto(
     @Size(max = 10, message = "A sigla do sistema não deve conter mais que 10 caracteres!")
     String systemAcronym,
 
-    @Email(message = "E-mail inválido!")
     @Size(max = 100, message = "O e-mail de atendimento não deve conter mais que 100 caracteres!")
     String systemServiceEmail,
 
