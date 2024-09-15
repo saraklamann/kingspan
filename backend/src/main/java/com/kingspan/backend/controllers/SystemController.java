@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,4 +64,14 @@ public class SystemController {
         }    
     }
     
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteSystem(@PathVariable(value="id") UUID id){
+        Optional<SystemModel> systemOptional = systemRepository.findById(id);
+        if(systemOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sistema não encontrado!");
+        } else {
+            systemRepository.delete(systemOptional.get());
+            return ResponseEntity.status(HttpStatus.OK).body("Sistema deletado com sucesso!");
+        } 
+    }
 }
