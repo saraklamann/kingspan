@@ -7,7 +7,7 @@ const App = () => {
     return (
         <Router>
             <Routes>
-                <Route path="/create-system" element={<CreateSytemPage/>}/>
+                <Route path="/new-system" element={<CreateSytemPage/>}/>
                 <Route path="" element={<ViewSystemsPage/>}/>
             </Routes>
         </Router>
