@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.kingspan.backend.dtos.SystemRecordDto;
 import com.kingspan.backend.models.SystemModel;
 import com.kingspan.backend.repositories.SystemRepository;
+import org.springframework.web.bind.annotation.PutMapping;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class SystemController {
@@ -48,4 +50,17 @@ public class SystemController {
             return ResponseEntity.status(HttpStatus.OK).body(systemOptional.get());
         }
     } 
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> updateSystem(@PathVariable(value="id") UUID id, @RequestBody @Valid SystemRecordDto systemRecordDto){
+        Optional<SystemModel> systemOptional = systemRepository.findById(id);
+        if(systemOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Sistema não encontrado!");
+        } else {
+            var systemModel = systemOptional.get();
+            BeanUtils.copyProperties(systemRecordDto, systemModel);
+            return ResponseEntity.status(HttpStatus.OK).body(systemRepository.save(systemModel));
+        }    
+    }
+    
 }
