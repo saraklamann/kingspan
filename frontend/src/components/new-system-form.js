@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+                          import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "../styles/create-system/system-form-component/style.css";
@@ -35,27 +35,41 @@ function CreateSystemForm() {
     };
   
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label> Descrição: </label>
-                    <input type="text" name="systemDescription" value={system.systemDescription} onChange={handleChange} required/>
-                </div>
-                <div>
-                    <label> Sigla: </label>
-                    <input type="text" name="systemAcronym" value={system.systemAcronym} onChange={handleChange} required/>
-                </div>
-                <div>
-                    <label> E-mail de atendimento: </label>
-                    <input type="text" name="systemServiceEmail" value={system.systemServiceEmail} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label> URL: </label>
-                    <input type="text" name="systemUrl" value={system.systemUrl} onChange={handleChange}/>
-                </div>
-                <button type="submit"> Salvar </button>
-            </form>
-            {error && <p>Error: {error.message}</p>}
+        <div className='row justify-center'>
+            <div className='col-lg-12 col-md-12 col-sm-12'>
+                <form onSubmit={handleSubmit} className='main'>
+                    <div className='row'>
+                        <div className='col-lg-12 col-md-12 col-sm-12'>
+                            <input placeholder="Descrição" className='input-field' type="text" name="systemDescription" value={system.systemDescription} onChange={handleChange} required/>
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-lg-12 col-md-12 col-sm-12'>
+                            <input placeholder='Sigla' className='input-field' type="text" name="systemAcronym" value={system.systemAcronym} onChange={handleChange} required/>
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-lg-12 col-md-12 col-sm-12'>
+                            <input placeholder='E-mail de atendimento' className='input-field' type="text" name="systemServiceEmail" value={system.systemServiceEmail} onChange={handleChange}/>
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-lg-12 col-md-12 col-sm-12'>
+                            <input placeholder='URL' className='input-field' type="text" name="systemUrl" value={system.systemUrl} onChange={handleChange}/>
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-lg-12 col-md-12 col-sm-12 justify-center'>
+                            <button className='all-button submit-button' type="submit"> Salvar </button>
+                            {error && <p>Error: {error.message}</p>}
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     );
   }
