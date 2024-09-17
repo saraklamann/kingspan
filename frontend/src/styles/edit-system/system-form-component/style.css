@@ -1,0 +1,13 @@
+
+.input-field{
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid;
+    outline-style: none;
+    margin-bottom: 10px;
+}
+
+.submit-button{
+    width: 200px;
+    margin: 20px;
+}
